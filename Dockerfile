@@ -1,8 +1,8 @@
-FROM amazonlinux
+FROM node
 
-RUN curl -sL https://rpm.nodesource.com/setup_11.x | bash -
-RUN yum install -y nodejs
-
-CMD node app
-
+RUN mkdir /usr/src/app
+COPY ./app.js /usr/src/app
 EXPOSE 3000
+
+WORKDIR /usr/src/app
+CMD node app
