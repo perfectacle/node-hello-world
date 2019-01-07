@@ -1,8 +1,7 @@
 FROM node:alpine
 
 RUN mkdir /usr/src
-COPY ./app.js /usr/src
-EXPOSE 3000
+COPY app.js /usr/src
 
 WORKDIR /usr/src
 CMD node app

@@ -1,9 +1,15 @@
 version: "3"
 
 services:
+  proxy:
+    build: ./nginx
+    image: perfectacle/node-nginx
+    container_name: node-hello-proxy
+    ports:
+      - "8000:80"
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
   app:
-    build: .
+    build: ./app
     image: perfectacle/node
     container_name: node-hello
-    ports:
-      - 4444:3000
