@@ -10,15 +10,12 @@ services:
     depends_on:
       - app-a
       - app-b
+  app: &app
+    build: ./app
+    image: perfectacle/node
   app-a:
-    build: ./app
-    image: perfectacle/node
+    <<: *app
     container_name: node-hello-a
-    ports:
-      - "9000:3000"
   app-b:
-    build: ./app
-    image: perfectacle/node
+    <<: *app
     container_name: node-hello-b
-    ports:
-      - "9001:3000"
