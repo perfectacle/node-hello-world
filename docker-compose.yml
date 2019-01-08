@@ -8,8 +8,17 @@ services:
     ports:
       - "8000:80"
     depends_on:
-      - app
-  app:
+      - app-a
+      - app-b
+  app-a:
+    build: ./app
+      image: perfectacle/node
+    container_name: node-hello-a
+    ports:
+      - "9000:3000"
+  app-b:
     build: ./app
     image: perfectacle/node
-    container_name: node-hello
+    container_name: node-hello-b
+    ports:
+      - "9001:3000"
