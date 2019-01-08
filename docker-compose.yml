@@ -12,7 +12,7 @@ services:
       - app-b
   app-a:
     build: ./app
-      image: perfectacle/node
+    image: perfectacle/node
     container_name: node-hello-a
     ports:
       - "9000:3000"
